@@ -6,8 +6,13 @@ const getUsers = (req, res = response) => {
   });
 };
 const postUsers = (req, res = response) => {
+
+    const {nombre, edad} = req.body;
+
   res.json({
     msg: `post API - postUsers`,
+    nombre,
+    edad
   });
 };
 const putUsers = (req, res = response) => {
