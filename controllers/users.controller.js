@@ -1,8 +1,16 @@
 const { response } = require("express");
 
 const getUsers = (req, res = response) => {
+
+    const {q, nombre = `No Name`, apikey, page = 1, limit} = req.query
+
   res.json({
     msg: `get API - getUsers`,
+    q,
+    nombre,
+    apikey,
+    page,
+    limit
   });
 };
 const postUsers = (req, res = response) => {
@@ -16,8 +24,12 @@ const postUsers = (req, res = response) => {
   });
 };
 const putUsers = (req, res = response) => {
+
+    const {id} = req.params;
+
   res.json({
     msg: `put API - putUsers`,
+    id
   });
 };
 const patchUsers = (req, res = response) => {
