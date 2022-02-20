@@ -1,2 +1,3 @@
-# curso-node-restserver
-Curso-Node Restserver Básico
+# WebServer + RestServer
+
+Ejecutar ```npm install``` para construir los modulos de Node
