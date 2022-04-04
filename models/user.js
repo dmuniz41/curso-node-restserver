@@ -19,10 +19,9 @@ const UsuarioSchema = Schema({
   img: {
     type: String,
   },
-  role: {
+  rol: {
     type: String,
     require: true,
-    enum: ["ADMIN_ROLE", "USER_ROLE"],
   },
 
   state: {
@@ -37,7 +36,7 @@ const UsuarioSchema = Schema({
 });
 
 UsuarioSchema.methods.toJSON = function () {
-  const { password, ...user } = this.toObject();
+  const { __v, password, ...user } = this.toObject();
   return user;
 };
 

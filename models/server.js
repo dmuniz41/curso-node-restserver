@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const mongoose =  require("mongoose");
+//const { dbConnection } = require('../database/config')
 
 class Server {
   constructor() {
@@ -7,12 +9,30 @@ class Server {
     this.port = process.env.PORT;
     this.usuariosPath = `/api/usuarios`;
 
+    //Conectar a BD
+
+    mongoose.connect('mongodb://127.0.0.1:27017/restserver',(err, res)=>{
+      if(err){
+        console.log('Error en la BD');
+        throw err;
+      }else{
+        console.log('BD online');
+      }
+    });
+
+   
+    // this.conectarDB();
+
     //Middelwares
     this.middlewares();
 
     //Rutas de la app
     this.routes();
   }
+
+  // async conectarDB(){
+  //   await dbConnection
+  // }
 
   middlewares() {
     //Directorio publico
